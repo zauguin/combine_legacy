@@ -1,0 +1,41 @@
+\ProvidesFile{combine_legacy.tex} [2022-08-28 v0.1 Build TU font from legacy fonts]
+
+\ifcsname directlua\endcsname
+\else
+  \PackageError{combine_legacy}{This\space font\space requires\space LuaTeX}{}
+  \expandafter\endinput
+\fi
+
+\ifcsname combine@legacy\endcsname
+  \expandafter\endinput
+\fi
+
+\ExplSyntaxOn
+\cs_new:Npn \__combinelegacy_process:nw #1 #2, #3 \s_stop {
+  #2 #1
+  \tl_if_empty:nF {#3} {
+    ,
+    \__combinelegacy_process:nw {#1} #3 \s_stop
+  }
+}
+
+\cs_new:Npn \__combinelegacy_process:nn #1 #2 {
+  \__combinelegacy_process:nw {#1} #2 , \s_stop
+}
+
+\group_begin:
+\globaldefs=1
+\NewExpandableDocumentCommand \combine@legacy {d() o m}{%
+  kpse:combine_legacy.lua:
+    \IfValueT {#1} {
+      encoding_provider = #1;
+    }
+    encodings={
+      \IfValueTF {#2} {
+        \__combinelegacy_process:nn {#2} {#3}
+      } {
+        #3
+      }
+    }
+}%
+\group_end:
