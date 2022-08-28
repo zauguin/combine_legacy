@@ -1,0 +1,24 @@
+%Adapted from the ...mlmdh.fd files.
+%
+%This work may be distributed and/or modified under the conditions
+%of the LaTeX Project Public License, either version 1.3c of this
+%license or (at your option) any later version.
+%Copyright 2003--2009 by B. Jackowski and J.M. Nowacki.
+%Copyright 2021 by Daniel Benjamin Miller.
+%Copyright 2022 by Marcel F. Krüger.
+%This work has the LPPL maintenance status "maintained".
+%The Current Maintainer of this work is Marcel F. Krüger
+
+\input combine_legacy
+\edef \mlm@font #1 {\combine@legacy [-#1]{IL2=cs,L7x=l7x,LY1=texnansi,QX=qx,T1=ec,T5=t5,TS1=ts1}}
+\ProvidesFile{tumlmdh.fd}[2022/08/28 v0.1 TU Font defs for mlmodern]
+\DeclareFontFamily{TU}{mlmdh}{}
+\DeclareFontShape{TU}{mlmdh}{m}{n}
+     {<-> \mlm@font{mlmdunh10}}{}
+\DeclareFontShape{TU}{mlmdh}{m}{it}
+     {<->sub*mlmdh/m/sl}{}
+\DeclareFontShape{TU}{mlmdh}{m}{sl}
+     {<-> \mlm@font{mlmduno10}}{}
+\endinput
+%%
+%% End of file `tumlmdh.fd'.

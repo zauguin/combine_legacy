@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{iftex}
+\unless\iftutex
+  \usepackage[T5,T1]{fontenc}
+\fi
+\usepackage[vietnamese, polish, ngerman]{babel}
+\usepackage{mlmodern}
+\usepackage{blindtext}
+\usepackage{lipsum}
+\begin{document}
+\pretolerance=-1
+\blinddocument
+\makeatletter
+
+Ein Satz mit ß.
+
+\textsf{\blindtext}
+
+\texttt{\blindtext}
+
+\setlipsum{text=lipsum-cs}
+\lipsum
+
+\begin{otherlanguage}{vietnamese}
+Tiếng Việt là ngôn ngữ của người Việt và là ngôn ngữ chính thức tại Việt Nam. Đây là tiếng mẹ đẻ của khoảng 85\% dân cư Việt Nam cùng với hơn 4 triệu Việt kiều.\end{otherlanguage}\ (\textsc{Wikipedia})\footnote{Full optical size support, as in Knuth's Computer Modern. And now here's some Polish: \foreignlanguage{polish}{Język polski, polszczyzna – język z grupy zachodniosłowiańskiej (do której należą również czeski, kaszubski słowacki i języki łużyckie), stanowiącej część rodziny indoeuropejskiej. Funkcjonuje jako język urzędowy Polski oraz należy do oficjalnych języków Unii Europejskiej.} (\textsc{Wikipedia})}
+\end{document}

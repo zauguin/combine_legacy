@@ -1,0 +1,53 @@
+%Adapted from the ...mlmss.fd files.
+%
+%This work may be distributed and/or modified under the conditions
+%of the LaTeX Project Public License, either version 1.3c of this
+%license or (at your option) any later version.
+%Copyright 2003--2009 by B. Jackowski and J.M. Nowacki.
+%Copyright 2021 by Daniel Benjamin Miller.
+%Copyright 2022 by Marcel F. Krüger.
+%This work has the LPPL maintenance status "maintained".
+%The Current Maintainer of this work is Marcel F. Krüger
+
+\input combine_legacy
+\edef \mlm@font #1 {\combine@legacy [-#1]{IL2=cs,L7x=l7x,LY1=texnansi,QX=qx,T1=ec,T5=t5,TS1=ts1}}
+\ProvidesFile{tumlmss.fd}[2022/08/28 v0.1 TU Font defs for mlmodern]
+\DeclareFontFamily{TU}{mlmss}{}
+\DeclareFontShape{TU}{mlmss}{m}{n}
+     {<-8.5> \mlm@font{mlmss8}
+      <8.5-9.5> \mlm@font{mlmss9}      <9.5-11>  \mlm@font{mlmss10}
+      <11-15.5> \mlm@font{mlmss12}     <15.5-> \mlm@font{mlmss17}
+      }{}
+\DeclareFontShape{TU}{mlmss}{m}{it}
+      {<->ssub*mlmss/m/sl}{}
+\DeclareFontShape{TU}{mlmss}{m}{sl}
+     {<-8.5> \mlm@font{mlmsso8}
+      <8.5-9.5> \mlm@font{mlmsso9}      <9.5-11>  \mlm@font{mlmsso10}
+      <11-15.5> \mlm@font{mlmsso12}     <15.5-> \mlm@font{mlmsso17}
+      }{}
+%%%%%%% Font/shape undefined, therefore substituted
+\DeclareFontShape{TU}{mlmss}{m}{sc}
+     {<->sub*mlmr/m/sc}{}
+\DeclareFontShape{TU}{mlmss}{b}{n}
+     {<->ssub * mlmss/bx/n}{}
+\DeclareFontShape{TU}{mlmss}{b}{sl}
+     {<->ssub * mlmss/bx/sl}{}
+\DeclareFontShape{TU}{mlmss}{b}{it}
+     {<->ssub * mlmss/bx/it}{}
+%%%%%%%% semibold condensed series
+\DeclareFontShape{TU}{mlmss}{sbc}{n}
+     {<-> \mlm@font{mlmssdc10}}{}
+\DeclareFontShape{TU}{mlmss}{sbc}{sl}
+     {<-> \mlm@font{mlmssdo10}}{}
+\DeclareFontShape{TU}{mlmss}{sbc}{it}
+     {<->ssub*mlmss/sbc/sl}{}
+%%%%%%%%% bold extended series
+\DeclareFontShape{TU}{mlmss}{bx}{n}
+     {<-> \mlm@font{mlmssbx10}}{}
+\DeclareFontShape{TU}{mlmss}{bx}{sl}
+     {<-> \mlm@font{mlmssbo10}}{}
+\DeclareFontShape{TU}{mlmss}{bx}{it}
+     {<->ssub*mlmss/bx/sl}{}
+\endinput
+%%
+%% End of file `tumlmss.fd'.

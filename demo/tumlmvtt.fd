@@ -1,0 +1,65 @@
+%Adapted from the ...mlmvtt.fd files.
+%
+%This work may be distributed and/or modified under the conditions
+%of the LaTeX Project Public License, either version 1.3c of this
+%license or (at your option) any later version.
+%Copyright 2003--2009 by B. Jackowski and J.M. Nowacki.
+%Copyright 2021 by Daniel Benjamin Miller.
+%Copyright 2022 by Marcel F. Krüger.
+%This work has the LPPL maintenance status "maintained".
+%The Current Maintainer of this work is Marcel F. Krüger
+
+\input combine_legacy
+\edef \mlm@font #1 {\combine@legacy [-#1]{IL2=cs,L7x=l7x,LY1=texnansi,QX=qx,T1=ec,T5=t5,TS1=ts1}}
+\ProvidesFile{tumlmvtt.fd}[2022/08/28 v0.1 TU Font defs for mlmodern]
+\DeclareFontFamily{TU}{mlmvtt}{}
+
+\ifx\mlmtt@use@light@as@normal\@empty
+% macro defined, so we use the light variant as medium (m), and
+% medium as semi-bold (sb):
+\DeclareFontShape{TU}{mlmvtt}{sb}{n}
+     {<-> \mlm@font{mlmvtt10}}{}
+\DeclareFontShape{TU}{mlmvtt}{sb}{sl}
+     {<-> \mlm@font{mlmvtto10}}{}
+\DeclareFontShape{TU}{mlmvtt}{sb}{it}
+     {<->sub*mlmvtt/m/sl}{}
+%%%%%%%% light (l) and dark (b) variants:
+\DeclareFontShape{TU}{mlmvtt}{m}{n}
+     {<-> \mlm@font{mlmvtl10}}{}
+\DeclareFontShape{TU}{mlmvtt}{m}{sl}
+     {<-> \mlm@font{mlmvtlo10}}{}
+\DeclareFontShape{TU}{mlmvtt}{m}{it}
+     {<->sub*mlmvtt/l/sl}{}
+
+\else
+% usual setup of variants:
+\DeclareFontShape{TU}{mlmvtt}{m}{n}
+     {<-> \mlm@font{mlmvtt10}}{}
+\DeclareFontShape{TU}{mlmvtt}{m}{sl}
+     {<-> \mlm@font{mlmvtto10}}{}
+\DeclareFontShape{TU}{mlmvtt}{m}{it}
+     {<->sub*mlmvtt/m/sl}{}
+%%%%%%%% light (l) and dark (b) variants:
+\DeclareFontShape{TU}{mlmvtt}{l}{n}
+     {<-> \mlm@font{mlmvtl10}}{}
+\DeclareFontShape{TU}{mlmvtt}{l}{sl}
+     {<-> \mlm@font{mlmvtlo10}}{}
+\DeclareFontShape{TU}{mlmvtt}{l}{it}
+     {<->sub*mlmvtt/l/sl}{}
+\fi
+% bold is always bold (b):
+\DeclareFontShape{TU}{mlmvtt}{b}{n}
+     {<-> \mlm@font{mlmvtk10}}{}
+\DeclareFontShape{TU}{mlmvtt}{b}{sl}
+     {<-> \mlm@font{mlmvtko10}}{}
+\DeclareFontShape{TU}{mlmvtt}{b}{it}
+     {<->sub*mlmvtt/b/sl}{}
+\DeclareFontShape{TU}{mlmvtt}{bx}{n}
+     {<->ssub*mlmvtt/b/n}{}
+\DeclareFontShape{TU}{mlmvtt}{bx}{sl}
+     {<->ssub*mlmvtt/b/sl}{}
+\DeclareFontShape{TU}{mlmvtt}{bx}{it}
+     {<->sub*mlmvtt/b/sl}{}
+\endinput
+%%
+%% End of file `t1mlmvtt.fd'.

@@ -1,0 +1,72 @@
+%Adapted from the ...mlmr.fd files.
+%
+%This work may be distributed and/or modified under the conditions
+%of the LaTeX Project Public License, either version 1.3c of this
+%license or (at your option) any later version.
+%Copyright 2003--2009 by B. Jackowski and J.M. Nowacki.
+%Copyright 2021 by Daniel Benjamin Miller.
+%Copyright 2022 by Marcel F. Krüger.
+%This work has the LPPL maintenance status "maintained".
+%The Current Maintainer of this work is Marcel F. Krüger
+
+\input combine_legacy
+\edef \mlm@font #1 {\combine@legacy [-#1]{IL2=cs,L7x=l7x,LY1=texnansi,QX=qx,T1=ec,T5=t5,TS1=ts1}}
+\ProvidesFile{tumlmr.fd}[2022/08/28 v0.1 TU Font defs for mlmodern]
+\DeclareFontFamily{TU}{mlmr}{}
+\DeclareFontShape{TU}{mlmr}{m}{n}%
+     {<-5.5>    \mlm@font{mlmr5}
+      <5.5-6.5> \mlm@font{mlmr6}
+      <6.5-7.5> \mlm@font{mlmr7}
+      <7.5-8.5> \mlm@font{mlmr8}
+      <8.5-9.5> \mlm@font{mlmr9}
+      <9.5-11>  \mlm@font{mlmr10}
+      <11-15>   \mlm@font{mlmr12}
+      <15->     \mlm@font{mlmr17}
+      }{}
+\DeclareFontShape{TU}{mlmr}{m}{sl}%
+     {<-8.5>    \mlm@font{mlmro8}
+      <8.5-9.5> \mlm@font{mlmro9}
+      <9.5-11>  \mlm@font{mlmro10}
+      <11-15>   \mlm@font{mlmro12}
+      <15->     \mlm@font{mlmro17}
+      }{}
+\DeclareFontShape{TU}{mlmr}{m}{it}%
+     {<-7.5>    \mlm@font{mlmri7}
+      <7.5-8.5> \mlm@font{mlmri8}
+      <8.5-9.5> \mlm@font{mlmri9}
+      <9.5-11>  \mlm@font{mlmri10}
+      <11->     \mlm@font{mlmri12}
+      }{}
+\DeclareFontShape{TU}{mlmr}{m}{sc}%
+     {<-> \mlm@font{mlmcsc10}}{}
+\DeclareFontShape{TU}{mlmr}{m}{ui}%
+     {<-> \mlm@font{mlmu10}}{}
+%
+% Is this the right 'shape'?:
+\DeclareFontShape{TU}{mlmr}{m}{scsl}%
+     {<-> \mlm@font{mlmcsco10}}{}
+%%%%%%% bold series
+\DeclareFontShape{TU}{mlmr}{b}{n}
+     {<-> \mlm@font{mlmb10}}{}
+\DeclareFontShape{TU}{mlmr}{b}{sl}
+     {<-> \mlm@font{mlmbo10}}{}
+%%%%%%% bold extended series
+\DeclareFontShape{TU}{mlmr}{bx}{n}
+     {<-5.5>    \mlm@font{mlmbx5}
+      <5.5-6.5> \mlm@font{mlmbx6}
+      <6.5-7.5> \mlm@font{mlmbx7}
+      <7.5-8.5> \mlm@font{mlmbx8}
+      <8.5-9.5> \mlm@font{mlmbx9}
+      <9.5-11>  \mlm@font{mlmbx10}
+      <11->     \mlm@font{mlmbx12}
+      }{}
+\DeclareFontShape{TU}{mlmr}{bx}{it}
+     {<-> \mlm@font{mlmbxi10}}{}
+\DeclareFontShape{TU}{mlmr}{bx}{sl}
+     {<-> \mlm@font{mlmbxo10}}{}
+%%%%%%% Font/shape undefined, therefore substituted
+\DeclareFontShape{TU}{mlmr}{b}{it}
+     {<->sub * mlmr/b/sl}{}
+\endinput
+%%
+%% End of file `tumlmr.fd'.
