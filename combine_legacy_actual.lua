@@ -1,3 +1,5 @@
+local combining_processor = require'combine_legacy_combining_processor'
+
 local default_encoding_provider = 'lua'
 
 local encoding_providers = {
@@ -62,6 +64,9 @@ return function(spec)
     name = spec.specification,
     fonts = {},
     characters = {},
+    shared = {
+      processes = {},
+    },
   }
   local parameters
   local private = 0x100000
@@ -129,5 +134,6 @@ return function(spec)
       end
     end
   end
+  new_font.shared.processes[1] = combining_processor(new_font.characters, new_font.parameters)
   return new_font
 end
