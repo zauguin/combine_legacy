@@ -1,4 +1,6 @@
 -- Based on and mostly consistent with https://github.com/zr-tex8r/texucsmapping by Takayuki YATO
+-- Some adjustments:
+--   U+F0000: PUA for (spacing) dot below instead of U+0323 (combining)
 return {
   il2 = {
     [0x00] = 0x0393,
@@ -2733,7 +2735,7 @@ return {
     0x02C6,
     0x02DC,
     0xA8,
-    0x0323,
+    0xF0000,
     0x02DA,
     0x02C7,
     0x02D8,
