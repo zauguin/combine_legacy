@@ -97,7 +97,41 @@ return function(spec)
       local mapped = font_mapping[i]
       local new_glyph = new_font.characters[mapped]
       if new_glyph then
-        -- TODO: Transfer kerns/ligatures
+        if glyph.extensible and not new_glyph.extensible then
+          local extensible = {}
+          for i, part in pairs(glyph.extensible) do
+            extensible[i] = font_mapping[part]
+          end
+          new_glyph.extensible = extensible
+        end
+        if glyph.kerns then
+          local kerns
+          if new_glyph.kerns then
+            kerns = new_glyph.kerns
+          else
+            kerns = {}
+            new_glyph.kerns = kerns
+          end
+          for i, kern in pairs(glyph.kerns) do
+            if not kerns[font_mapping[i]] then
+              kerns[font_mapping[i]] = kern
+            end
+          end
+        end
+        if glyph.ligatures then
+          local ligatures
+          if new_glyph.ligatures then
+            ligatures = new_glyph.ligatures
+          else
+            ligatures = {}
+            new_glyph.ligatures = ligatures
+          end
+          for i, lig in pairs(glyph.ligatures) do
+            if not ligatures[font_mapping[i]] then
+              ligatures[font_mapping[i]] = { char = font_mapping[lig.char], type = lig.type }
+            end
+          end
+        end
       else
         local extensible
         if glyph.extensible then
