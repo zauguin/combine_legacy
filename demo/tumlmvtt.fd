@@ -10,7 +10,7 @@
 %The Current Maintainer of this work is Marcel F. Krüger
 
 \input combine_legacy
-\edef \mlm@font #1 {\combine@legacy [-#1]{IL2=cs,L7x=l7x,LY1=texnansi,QX=qx,T1=ec,T5=t5,TS1=ts1}}
+\edef \mlm@font #1 {\combine@legacy [-#1]{T1=ec,TS1=ts1,T5=t5,IL2=cs,L7x=l7x,LY1=texnansi,QX=qx}}
 \ProvidesFile{tumlmvtt.fd}[2022/08/28 v0.1 TU Font defs for mlmodern]
 \DeclareFontFamily{TU}{mlmvtt}{}
 
